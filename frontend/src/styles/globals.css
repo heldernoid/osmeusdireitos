@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary - Mozambican green */
+  --primary:        #16a34a;
+  --primary-dark:   #15803d;
+  --primary-hover:  #22c55e;
+  --primary-light:  #dcfce7;
+  --primary-muted:  #86efac;
+
+  /* Verdict colors */
+  --violated:       #dc2626;
+  --violated-bg:    #fef2f2;
+  --violated-border:#fca5a5;
+  --not-violated:   #16a34a;
+  --not-violated-bg:#f0fdf4;
+  --not-violated-border: #86efac;
+
+  /* Severity */
+  --sev-high:       #dc2626;
+  --sev-high-bg:    #fef2f2;
+  --sev-medium:     #d97706;
+  --sev-medium-bg:  #fffbeb;
+  --sev-low:        #2563eb;
+  --sev-low-bg:     #eff6ff;
+
+  /* Backgrounds */
+  --bg-page:        #f8fafc;
+  --bg-surface:     #ffffff;
+  --bg-subtle:      #f1f5f9;
+  --bg-muted:       #e2e8f0;
+
+  /* Borders */
+  --border:         #e2e8f0;
+  --border-strong:  #cbd5e1;
+  --border-focus:   #16a34a;
+
+  /* Text */
+  --text:           #0f172a;
+  --text-secondary: #475569;
+  --text-muted:     #94a3b8;
+  --text-inverse:   #ffffff;
+  --text-link:      #16a34a;
+
+  /* Typography */
+  --font-ui:   'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px;
+  --space-4: 16px; --space-5: 20px; --space-6: 24px;
+  --space-8: 32px; --space-10: 40px; --space-12: 48px;
+
+  /* Border radii */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-lg: 0 4px 16px rgba(0,0,0,0.12);
+
+  /* Transitions */
+  --transition-fast: 100ms ease;
+  --transition:      150ms ease;
+}
+
+html {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  background-color: var(--bg-page);
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-page);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
