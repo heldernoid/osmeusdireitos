@@ -35,7 +35,7 @@ export default function SobrePage() {
               Os Meus <span className="text-[var(--primary)]">Direitos</span>
             </p>
             <p className="text-xs text-[var(--text-muted)] mt-0.5">
-              Constituição da República de Moçambique
+              Legislação da República de Moçambique
             </p>
           </div>
         </div>
@@ -44,12 +44,12 @@ export default function SobrePage() {
         <Section title="O que é esta app?">
           <p>
             <strong>Os Meus Direitos</strong> é uma ferramenta gratuita que ajuda cidadãos moçambicanos
-            a compreender se os seus direitos constitucionais foram violados numa situação concreta.
+            a compreender se os seus direitos foram violados numa situação concreta.
           </p>
           <p className="mt-2">
             Descreve o que aconteceu em linguagem simples. A app analisa automaticamente a tua
-            situação contra todos os artigos da Constituição da República de Moçambique e devolve
-            uma explicação clara e passos concretos que podes tomar.
+            situação contra a legislação moçambicana — Constituição, Lei do Trabalho, Lei da Família,
+            Código Penal e mais — e devolve uma explicação clara e passos concretos que podes tomar.
           </p>
         </Section>
 
@@ -58,7 +58,7 @@ export default function SobrePage() {
           <ol className="flex flex-col gap-2.5">
             {[
               "O teu texto é processado localmente — nenhum dado identificável é enviado para servidores externos.",
-              "Um modelo de linguagem analisa a situação contra os 313 artigos da Constituição (versão 2004, revista 2018).",
+              "Um modelo de linguagem analisa a situação contra mais de 1300 artigos da legislação moçambicana — Constituição, Lei do Trabalho, Lei da Família, Código Penal, EGFAE e Direitos da Criança.",
               "O resultado mostra quais os artigos relevantes, se houve violação e o que podes fazer a seguir.",
             ].map((step, i) => (
               <li key={i} className="flex items-start gap-2.5">
@@ -88,7 +88,7 @@ export default function SobrePage() {
           <ul className="mt-3 flex flex-col gap-1.5">
             {[
               "O modelo pode cometer erros — verifica sempre os artigos citados.",
-              "Cobre apenas a Constituição. Legislação ordinária (Código do Trabalho, etc.) não está incluída.",
+              "A cobertura legal é limitada aos documentos indexados — pode não incluir todas as leis relevantes.",
               "As análises são geradas por IA e não representam opinião jurídica qualificada.",
             ].map((item, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
@@ -152,13 +152,13 @@ export default function SobrePage() {
         {/* Source */}
         <Section title="Fonte legal">
           <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-            A base de conhecimento desta app baseia-se na{" "}
-            <strong>Constituição da República de Moçambique</strong>, aprovada em 2004 e revista em
-            2018, publicada pelo Conselho Constitucional da República de Moçambique.
+            A base de conhecimento inclui mais de 1300 artigos da legislação moçambicana:
+            Constituição da República (2004, revista 2018), Lei do Trabalho, Lei da Família,
+            Código Penal, Estatuto Geral dos Funcionários e Agentes do Estado (EGFAE)
+            e Lei dos Direitos da Criança.
           </p>
           <p className="mt-2 text-sm text-[var(--text-secondary)] leading-relaxed">
-            Os 313 artigos foram indexados e podem ser consultados directamente no resultado de cada
-            análise.
+            Os artigos relevantes são citados directamente no resultado de cada análise.
           </p>
         </Section>
 
