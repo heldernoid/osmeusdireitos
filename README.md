@@ -59,9 +59,11 @@ cd os-meus-direitos
 cp backend/.env.example backend/.env   # configuração padrão já funciona
 ```
 
-### 2. Indexar a Constituição
+### 2. Indexar os documentos
 
 Só é necessário fazer isto uma vez. Cria os embeddings e guarda-os em `backend/data/chroma/`.
+
+> ⚠️ Se aparecer "network error" ao fazer uma query, é porque este passo não foi executado.
 
 ```bash
 make index
