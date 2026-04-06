@@ -2,7 +2,7 @@
 
 Ferramenta gratuita de assessoria jurídica para cidadãos moçambicanos.
 
-O utilizador descreve uma situação real. A app analisa contra a legislação moçambicana (Constituição, Lei do Trabalho, Lei da Família, Código Penal, EGFAE, Direitos da Criança — mais de 1300 artigos) e responde: houve violação? Quais os artigos? O que fazer?
+O utilizador descreve uma situação real. A app analisa contra a legislação moçambicana (Constituição, Lei do Trabalho, Lei da Família, Código Penal, EGFAE, Direitos da Criança, mais de 1300 artigos) e responde: houve violação? Quais os artigos? O que fazer?
 
 ![Demo](demo.gif)
 
@@ -15,8 +15,8 @@ O utilizador descreve uma situação real. A app analisa contra a legislação m
 | Frontend | Next.js 14 + TypeScript + Tailwind CSS |
 | Backend | Python 3.11 + FastAPI |
 | RAG | ChromaDB + pdfplumber |
-| Embeddings | Ollama — `nomic-embed-text` |
-| LLM | Ollama — `ministral-3:3b` (ou OpenRouter se configurado) |
+| Embeddings | Ollama - `nomic-embed-text` |
+| LLM | Ollama - `ministral-3:3b` (ou OpenRouter se configurado) |
 | Base de dados | SQLite (via aiosqlite) |
 | Infra | Docker + Docker Compose |
 
