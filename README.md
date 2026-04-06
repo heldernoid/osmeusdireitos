@@ -1,8 +1,8 @@
 # Os Meus Direitos
 
-Ferramenta gratuita de análise de direitos constitucionais para cidadãos moçambicanos.
+Ferramenta gratuita de assessoria jurídica para cidadãos moçambicanos.
 
-O utilizador descreve uma situação real. A app analisa contra a Constituição da República de Moçambique (313 artigos) e responde: houve violação? Quais os artigos? O que fazer?
+O utilizador descreve uma situação real. A app analisa contra a legislação moçambicana (Constituição, Lei do Trabalho, Lei da Família, Código Penal, EGFAE, Direitos da Criança — mais de 1300 artigos) e responde: houve violação? Quais os artigos? O que fazer?
 
 ![Demo](demo.gif)
 
@@ -14,13 +14,11 @@ O utilizador descreve uma situação real. A app analisa contra a Constituição
 |--------|-----------|
 | Frontend | Next.js 14 + TypeScript + Tailwind CSS |
 | Backend | Python 3.11 + FastAPI |
-| RAG | LangChain + ChromaDB |
+| RAG | ChromaDB + pdfplumber |
 | Embeddings | Ollama — `nomic-embed-text` |
-| LLM | Ollama — `ministral-3:3b` |
+| LLM | Ollama — `ministral-3:3b` (ou OpenRouter se configurado) |
 | Base de dados | SQLite (via aiosqlite) |
 | Infra | Docker + Docker Compose |
-
-Tudo corre localmente. Não é necessária qualquer chave de API externa.
 
 ---
 
@@ -44,7 +42,7 @@ make down      # parar
 make restart   # reiniciar containers
 make build     # só build
 make logs      # logs em tempo real
-make index     # re-indexar a Constituição
+make index     # indexar todos os PDFs em backend/data/raw/
 ```
 
 ---
@@ -79,7 +77,6 @@ make up
 |---------|-----|
 | Frontend | http://localhost:3005 |
 | Backend API | http://localhost:8005 |
-| Docs da API | http://localhost:8005/docs |
 
 ---
 
@@ -89,18 +86,18 @@ make up
 os-meus-direitos/
 ├── backend/
 │   ├── src/
-│   │   ├── ingestion/   # parse PDF + embeddings
+│   │   ├── ingestion/   # parse PDFs + embeddings
 │   │   ├── rag/         # retriever + pipeline + prompts
 │   │   └── main.py      # FastAPI app
 │   ├── tests/
-│   └── data/            # chroma/ + db.sqlite3 (gerados)
+│   └── data/
+│       └── raw/         # PDFs indexados
 ├── frontend/
 │   └── src/
 │       ├── app/         # Next.js App Router
 │       └── components/  # UI components
-├── ARCHITECTURE.md
-├── API.md
-└── PLAN.md
+├── docker-compose.yml
+└── Makefile
 ```
 
 ---
@@ -122,12 +119,11 @@ docker compose run --rm backend pytest tests/ -v
 A app é completamente auto-contida via Docker. Para deploy em servidor próprio:
 
 1. Instala o Ollama no servidor e faz pull dos modelos
-2. Copia o `docker-compose.yml` e os ficheiros de configuração
-3. Corre a indexação uma vez: `docker compose run --rm backend python -m src.ingestion.run_ingestion`
-4. `docker compose up -d`
+2. Clona o repositório e copia `backend/.env.example` para `backend/.env`
+3. `make index`
+4. `make up`
 
 ---
-
 
 ## Licença
 
