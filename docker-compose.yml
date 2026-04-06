@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8005:8000"
+    env_file:
+      - ./backend/.env
+    environment:
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+    extra_hosts:
+      # allows container to reach host Ollama on Linux
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./backend/data:/app/data
+      - ./backend/src:/app/src
+      - ./backend/tests:/app/tests
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    environment:
+      - BACKEND_URL=http://backend:8000
+    ports:
+      - "3005:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+

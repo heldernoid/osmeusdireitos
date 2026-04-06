@@ -1,0 +1,21 @@
+{
+  "name": "Os Meus Direitos",
+  "short_name": "Direitos MZ",
+  "description": "Análise de direitos constitucionais para cidadãos moçambicanos",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#16a34a",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
